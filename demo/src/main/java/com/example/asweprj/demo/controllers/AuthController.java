@@ -1,3 +1,5 @@
+package com.example.asweprj.demo.controllers;
+
 import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
@@ -5,11 +7,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
 
 import com.example.asweprj.demo.models.Employee;
+import com.example.asweprj.demo.models.Manager;
 import com.example.asweprj.demo.models.User;
-
-import ch.qos.logback.core.model.Model;
+import com.example.asweprj.demo.repositories.UserRepository;
+import com.example.asweprj.demo.repositories.EmployeeRepository;
+import com.example.asweprj.demo.repositories.ManagerRepository;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
