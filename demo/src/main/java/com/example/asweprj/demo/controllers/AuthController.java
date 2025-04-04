@@ -1,52 +1,106 @@
-package com.example.asweprj.demo.controllers;
-
-import com.example.demo.entity.User;
-import com.example.demo.repository.UserRepository;
-import com.example.demo.security.JwtService;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/api/auth")
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.asweprj.demo.models.Employee;
+import com.example.asweprj.demo.models.User;
+
+import ch.qos.logback.core.model.Model;
+import jakarta.servlet.http.HttpSession;
+
+@Controller
+@RequestMapping("/auth")
 public class AuthController {
 
     private final UserRepository userRepository;
-    private final JwtService jwtService;
+    private final EmployeeRepository employeeRepository;
+    private final ManagerRepository managerRepository;
 
-    // Direct BCryptPasswordEncoder initialization in the constructor
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    public AuthController(UserRepository userRepository, JwtService jwtService) {
+    public AuthController(UserRepository userRepository,
+                          EmployeeRepository employeeRepository,
+                          ManagerRepository managerRepository) {
         this.userRepository = userRepository;
-        this.jwtService = jwtService;
+        this.employeeRepository = employeeRepository;
+        this.managerRepository = managerRepository;
     }
 
-    // Register API endpoint
+    @GetMapping("/register")
+    public String showRegisterForm(Model model) {
+        model.addAttribute("user", new User());
+        return "register";
+    }
+
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody User user) {
+    public String register(@ModelAttribute("user") User user, Model model) {
         if (userRepository.findByEmail(user.getEmail()).isPresent()) {
-            return ResponseEntity.badRequest().body("Email already in use");
+            model.addAttribute("error", "Email already exists.");
+            return "register";
         }
 
-        // Encrypt password without using @Bean
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
-        return ResponseEntity.ok("User registered successfully");
+
+        switch (user.getRole().toUpperCase()) {
+            case "EMPLOYEE" -> {
+                Employee emp = new Employee();
+                emp.setName(user.getName());
+                emp.setEmail(user.getEmail());
+                emp.setPassword(user.getPassword());
+                emp.setRole("EMPLOYEE");
+                emp.setWorkload(0);
+                employeeRepository.save(emp);
+            }
+            case "MANAGER" -> {
+                Manager mgr = new Manager();
+                mgr.setName(user.getName());
+                mgr.setEmail(user.getEmail());
+                mgr.setPassword(user.getPassword());
+                mgr.setRole("MANAGER");
+                managerRepository.save(mgr);
+            }
+            default -> {
+                model.addAttribute("error", "Invalid role.");
+                return "register";
+            }
+        }
+
+        return "redirect:/auth/login";
     }
 
-    // Login API endpoint
-    @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody User loginUser) {
-        Optional<User> userOpt = userRepository.findByEmail(loginUser.getEmail());
+    @GetMapping("/login")
+    public String showLoginForm(Model model) {
+        model.addAttribute("user", new User());
+        return "login";
+    }
 
-        if (userOpt.isEmpty() || !passwordEncoder.matches(loginUser.getPassword(), userOpt.get().getPassword())) {
-            return ResponseEntity.status(401).body("Invalid email or password");
+    @PostMapping("/login")
+    public String login(@ModelAttribute("user") User formUser, HttpSession session, Model model) {
+        Optional<User> optionalUser = userRepository.findByEmail(formUser.getEmail());
+
+        if (optionalUser.isEmpty() || !passwordEncoder.matches(formUser.getPassword(), optionalUser.get().getPassword())) {
+            model.addAttribute("error", "Invalid credentials.");
+            return "login";
         }
 
-        String token = jwtService.generateToken(loginUser.getEmail());
-        return ResponseEntity.ok("Bearer " + token);
+        User user = optionalUser.get();
+        session.setAttribute("loggedInUser", user);
+
+        // Redirect based on role
+        return switch (user.getRole().toUpperCase()) {
+            case "EMPLOYEE" -> "redirect:/employee/dashboard";
+            case "MANAGER" -> "redirect:/manager/dashboard";
+            default -> "redirect:/";
+        };
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/auth/login";
     }
 }
