@@ -1,0 +1,79 @@
+/* Custom Navbar Color */
+.custom-navbar  {
+    background-color: #122b4f !important;
+}
+
+.custom-text {
+    color: #122b4f !important;
+}
+/* Global table header styling */
+.table-custom {
+    background-color: #122b4f;  /* Set the background color */
+    color: white;  /* Set the text color to white */
+}
+
+
+
+
+/* Light text color for the navbar links */
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #c7d5e0;
+}
+
+/* Styling for the body */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Table Styles */
+
+table th, table td {
+    vertical-align: middle !important;
+}
+
+h1, h2 {
+    font-weight: 600;
+}
+
+/* Custom button styling */
+.btn-outline-light {
+    color: #fff;
+    border-color: #fff;
+}
+
+.btn-outline-light:hover {
+    background-color: #fff;
+    color: #122b4f;
+}
+/* Custom navbar styling */
+.custom-navbar {
+    background-color: #122b4f; /* Set navbar background color */
+}
+
+.custom-navbar .navbar-nav .nav-link {
+    color: white; /* Set text color for navbar links */
+}
+
+.custom-navbar .navbar-nav .nav-link:hover {
+    color: #f8f9fa; /* Optional: Change hover color for better UX */
+}
+
+/* Global table header styling */
+.table thead {
+    background-color: #122b4f;  /* Set the background color */
+    color: white;  /* Set the text color to white */
+}
+
+.table th {
+    text-align: center;  /* Center-align the header text */
+}
