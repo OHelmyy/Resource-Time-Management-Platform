@@ -11,11 +11,17 @@
 <body class="bg-light">
 
 <header>
-   
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">Employee</a>
+        </div>
+    </nav>
 
     <div class="container-fluid mt-4">
         <div class="d-flex justify-content-between align-items-center">
             <h1 class="h3 text-dark">Dashboard</h1>
+           
+            <a class="btn btn-outline-dark" th:href="@{/employee/tasks}">Show Tasks</a>
             <a class="btn btn-outline-dark" th:href="@{/auth/logout}">Logout</a>
         </div>
     </div>
@@ -25,9 +31,10 @@
     <section class="mb-5">
         <h2 class="h4 custom-text mb-3">My Profile</h2>
         <div class="card p-3">
-            <p><strong>Name:</strong> <span th:text="${employee.name}">Jane Doe</span></p>
-            <p><strong>Email:</strong> <span th:text="${employee.email}">jane@example.com</span></p>
+            <p><strong>Name:</strong> <span th:text="${employee.name}">S S</span></p>
+            <p><strong>Email:</strong> <span th:text="${employee.email}">SAM@example.com</span></p>
             <p><strong>Role:</strong> <span th:text="${employee.role}">Employee</span></p>
+            <p><strong>Current Workload:</strong> <span th:text="${employee.workload}">3</span></p>
         </div>
     </section>
 
@@ -45,10 +52,13 @@
                 </thead>
                 <tbody>
                     <tr th:each="task : ${myTasks}">
-                        <td th:text="${task.description}">Task 1</td>
+                        <td th:text="${task.DESCRIPTION}">Task 1</td>
                         <td th:text="${task.status}">Pending</td>
-                        
-                            
+                        <td th:text="${task.deadline}">2025-04-10</td>
+                        <td>
+                            <a class="btn btn-outline-dark me-2" th:href="@{'/employee/task/' + ${task.id}}">View</a>
+                            <a class="btn btn-outline-dark" th:href="@{'/employee/task/update/' + ${task.id}}">Update</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
