@@ -59,7 +59,7 @@ public class EmployeeController {
         timeTrackingRepository.save(timeTracking);
 
         Task task = timeTracking.getTask();
-        task.setStatus("In Progress");
+        task.setStatus("IN PROGRESS");
         taskRepository.save(task);
         
         return "redirect:/employee/tasks";  
@@ -86,7 +86,7 @@ public class EmployeeController {
         }
 
         Task task = timeTracking.getTask();
-            task.setStatus("Completed");
+            task.setStatus("DONE");
             taskRepository.save(task);
         
         return "redirect:/employee/tasks";

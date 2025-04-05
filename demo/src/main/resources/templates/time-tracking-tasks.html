@@ -29,13 +29,13 @@
 
                     
                     
-                    <div>
+                    <div th:if="${task.status == 'TO DO'}">
                         <form th:action="@{/employee/tasks/start/{taskId}(taskId=${task.taskId})}" method="post">
                             <button type="submit" th:text="'Start Timer'">Start Timer</button>
                         </form>
                     </div>
 
-                    <div th:if="${task.status == 'In Progress'}">
+                    <div th:if="${task.status == 'IN PROGRESS'}">
                         <form th:action="@{/employee/tasks/end/{taskId}(taskId=${task.taskId})}" method="post">
                             <button type="submit" th:text="'End Timer'">End Timer</button>
                         </form>
@@ -51,6 +51,7 @@
 
     
     <div>
+        <a href="/employee/dashboard">Go to dashboard</a>
         <a href="/auth/logout">Logout</a>
     </div>
 </body>

@@ -9,15 +9,13 @@
 <body>
     <div th:replace="~{navbar :: navbar}"></div>
 
-    <h1 class="text-center mt-5">Employee Workloads</h1>
+    <h1 class="text-center mt-5">Employees Workload</h1>
 
     <div class="container mt-5">
         <table class="table table-striped table-bordered align-middle">
-            <thead class="table-dark">
+            <thead class="table-white">
                 <tr>
                     <th>Name</th>
-                    <th>Email</th>
-                    <th>Role</th>
                     <th>Workload</th>
                     <th>Action</th>
                 </tr>
@@ -25,12 +23,10 @@
             <tbody>
                 <tr th:each="employee : ${employees}">
                     <td th:text="${employee.name}"></td>
-                    <td th:text="${employee.email}"></td>
-                    <td th:text="${employee.role}"></td>
                     <td th:text="${employee.workload}"></td>
-                    <td>
-                        <a class="btn btn-primary" th:href="@{/manager/edit-workload/{employeeId}(employeeId=${employee.userId})}">Edit Workload</a>
-                    </td>
+                    <td class="text-center">
+                        <a class="btn" style="background-color: #122b4f; color: white;" th:href="@{/manager/edit-workload/{employeeId}(employeeId=${employee.userId})}">Edit Workload</a>                    </td>
+                    
                 </tr>
             </tbody>
         </table>
