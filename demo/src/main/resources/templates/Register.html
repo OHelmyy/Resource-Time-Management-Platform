@@ -19,6 +19,11 @@
     </form>
     
     <p th:if="${error}" th:text="${error}"></p>
-    
+    <div style="text-align: center; margin-top: 20px;">
+        <p style="color: white;">Already Have an Account </p>
+        <a th:href="@{/auth/login}">
+            <button type="button">Login</button>
+        </a>
+    </div>
 </body>
 </html>
