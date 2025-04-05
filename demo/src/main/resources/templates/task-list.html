@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <link rel="stylesheet" th:href="@{/css/task-list.css}">
+    <head>
+        <title>Task List</title>
+        
+    </head>
+    <body>
+    <div class="container">
+        <h2>All Tasks</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Assigned To</th>
+                <th>Actions</th>
+                
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="task : ${tasks}">
+                <td th:text="${task.taskId}"></td>
+                <td th:text="${task.description}"></td>
+                <td th:text="${task.status}"></td>
+                <td th:text="${task.employee != null ? task.employee.name : 'Unassigned'}"></td>
+                <td>
+                    <a th:href="@{'/tasks/edit/' + ${task.taskId}}" class="action-btn">Edit</a>
+                    <a th:href="@{'/tasks/delete/' + ${task.taskId}}" class="action-btn delete"
+                       onclick="return confirm('Are you sure you want to delete this task?');">Delete</a>
+                       <a th:href="@{'/tasks/assign/' + ${task.taskId}}" class="action-btn">Assign</a>
+
+                </td>
+                
+
+            </tr>
+            </tbody>
+        </table>
+    
+        <div class="back-link">
+            <a th:href="@{/tasks/create}">← Back to Create Task</a>
+        </div>
+    </div>
+    </body>
+    </html>
+    

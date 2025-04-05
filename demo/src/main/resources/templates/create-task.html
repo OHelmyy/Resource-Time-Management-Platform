@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <link rel="stylesheet" th:href="@{/css/task.css}">
+<head>
+    <title>Create Task</title>
+
+</head>
+<body>
+<div class="container">
+    <h2>Create New Task</h2>
+    
+    <form th:action="@{/tasks/create}" th:object="${task}" method="post">
+        <label for="description">Description:</label>
+        <input type="text" th:field="*{description}" id="description" required/>
+
+        <label for="status">Status:</label>
+        <input type="text" th:field="*{status}" id="status" required/>
+
+        <div class="button-group">
+            <button type="submit">Create Task</button>
+            <a th:href="@{/tasks/list}" class="view-button">View Tasks</a>
+        </div>
+    </form>
+
+    <div class="success" th:if="${param.success}">
+        Task successfully created!
+    </div>
+</div>
+</body>
+</html>

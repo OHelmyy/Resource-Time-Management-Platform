@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Task</title>
+    <style>
+        body {
+            background-color: #122b4f;
+            font-family: Arial, sans-serif;
+            color: #003366;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #e6f0ff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #99c2ff;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004d99;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Edit Task</h2>
+
+    <form th:action="@{'/tasks/edit/' + ${task.taskId}}" th:object="${task}" method="post">
+        <label for="description">Description:</label>
+        <input type="text" th:field="*{description}" id="description" required/>
+
+        <label for="status">Status:</label>
+        <input type="text" th:field="*{status}" id="status" required/>
+
+        <button type="submit">Update Task</button>
+    </form>
+
+    <div class="back-link">
+        <a th:href="@{/tasks/list}">← Back to Task List</a>
+    </div>
+</div>
+</body>
+</html>
