@@ -7,6 +7,8 @@ import com.example.asweprj.demo.repositories.EmployeeRepository;
 import com.example.asweprj.demo.repositories.TaskRepository;
 import com.example.asweprj.demo.services.MenuService;
 
+import jakarta.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,9 +29,30 @@ public class DashboardController {
         this.taskRepository = taskRepository;
         this.menuService = menuService; // ✅ Assign it
     }
+    private boolean isNotLoggedIn(HttpSession session) {
+        return session.getAttribute("loggedInUser") == null;
+    }
+    private boolean isManager(HttpSession session) {
+        Object userObj = session.getAttribute("loggedInUser");
+        if (userObj == null) {
+            return false;
+        }
+    
+        if (userObj instanceof com.example.asweprj.demo.models.User user) {
+            return "MANAGER".equalsIgnoreCase(user.getRole());
+        }
+    
+        return false;
+    }
 
     @GetMapping("/dashboard")
-    public String showManagerDashboard(Model model) {
+    public String showManagerDashboard(Model model, HttpSession session) {
+        if (isNotLoggedIn(session)) {
+            return "redirect:/auth/login";
+        }
+        if (!isManager(session)) {
+            return "redirect:/employee/dashboard"; 
+        }
         List<Employee> employees = employeeRepository.findAll();
         List<Task> tasks = taskRepository.findAll();
         List<MenuItem> menuItems = menuService.getMenuItems(); // ✅ Get menu items

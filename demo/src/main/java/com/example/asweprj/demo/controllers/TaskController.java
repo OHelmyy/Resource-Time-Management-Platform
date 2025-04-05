@@ -24,6 +24,18 @@ public class TaskController {
     private boolean isNotLoggedIn(HttpSession session) {
         return session.getAttribute("loggedInUser") == null;
     }
+    private boolean isManager(HttpSession session) {
+        Object userObj = session.getAttribute("loggedInUser");
+        if (userObj == null) {
+            return false;
+        }
+    
+        if (userObj instanceof com.example.asweprj.demo.models.User user) {
+            return "MANAGER".equalsIgnoreCase(user.getRole());
+        }
+    
+        return false;
+    }
 
     
 
@@ -31,6 +43,9 @@ public class TaskController {
     public String showAssignForm(@PathVariable Long id, Model model, HttpSession session) {
         if (isNotLoggedIn(session)) {
             return "redirect:/auth/login";
+        }
+        if (!isManager(session)) {
+            return "redirect:/employee/dashboard"; 
         }
 
         Task task = taskRepository.findById(id)
@@ -44,6 +59,9 @@ public class TaskController {
     public String assignTask(@PathVariable Long id, @RequestParam Long employeeId, HttpSession session) {
         if (isNotLoggedIn(session)) {
             return "redirect:/auth/login";
+        }
+        if (!isManager(session)) {
+            return "redirect:/employee/dashboard"; 
         }
 
         Task task = taskRepository.findById(id)
@@ -60,6 +78,9 @@ public String showCreateForm(Model model, HttpSession session) {
     if (isNotLoggedIn(session)) {
         return "redirect:/auth/login";
     }
+    if (!isManager(session)) {
+        return "redirect:/employee/dashboard"; 
+    }
 
     Task task = new Task();
     task.setStatus("TO DO"); // Set default status here
@@ -73,6 +94,9 @@ public String showCreateForm(Model model, HttpSession session) {
         if (isNotLoggedIn(session)) {
             return "redirect:/auth/login";
         }
+        if (!isManager(session)) {
+            return "redirect:/employee/dashboard"; 
+        }
 
         taskRepository.save(task);
         return "redirect:/tasks/create?success";
@@ -82,6 +106,9 @@ public String showCreateForm(Model model, HttpSession session) {
     public String listTasks(Model model, HttpSession session) {
         if (isNotLoggedIn(session)) {
             return "redirect:/auth/login";
+        }
+        if (!isManager(session)) {
+            return "redirect:/employee/dashboard"; 
         }
 
         model.addAttribute("tasks", taskRepository.findAll());
@@ -93,6 +120,9 @@ public String showCreateForm(Model model, HttpSession session) {
         if (isNotLoggedIn(session)) {
             return "redirect:/auth/login";
         }
+        if (!isManager(session)) {
+            return "redirect:/employee/dashboard"; 
+        }
 
         Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid task ID: " + id));
@@ -103,7 +133,10 @@ public String showCreateForm(Model model, HttpSession session) {
     @PostMapping("/edit/{id}")
     public String updateTask(@PathVariable Long id, @ModelAttribute Task updatedTask, HttpSession session) {
         if (isNotLoggedIn(session)) {
-            return "redirect:auth//login";
+            return "redirect:/auth/login";
+        }
+        if (!isManager(session)) {
+            return "redirect:/employee/dashboard"; 
         }
 
         Task task = taskRepository.findById(id)
@@ -118,6 +151,9 @@ public String showCreateForm(Model model, HttpSession session) {
     public String deleteTask(@PathVariable Long id, HttpSession session) {
         if (isNotLoggedIn(session)) {
             return "redirect:/auth/login";
+        }
+        if (!isManager(session)) {
+            return "redirect:/employee/dashboard"; 
         }
 
         taskRepository.deleteById(id);
