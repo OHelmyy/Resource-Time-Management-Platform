@@ -46,7 +46,6 @@
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Role</th>
                         <th>Workload</th>
                     </tr>
                 </thead>
@@ -54,7 +53,6 @@
                     <tr th:each="employee : ${employees}">
                         <td th:text="${employee.name}"></td>
                         <td th:text="${employee.email}">john@example.com</td>
-                        <td th:text="${employee.role}">Employee</td>
                         <td th:text="${employee.workload}">0</td>
                     </tr>
                 </tbody>
