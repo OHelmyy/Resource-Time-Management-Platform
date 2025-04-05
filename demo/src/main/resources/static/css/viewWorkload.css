@@ -1,0 +1,71 @@
+/* General body styles */
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* updated to match the background in the screenshot */
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Headline */
+h1 {
+    color: #ffffff; /* changed to white like the screenshot */
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+/* Table styles */
+.table {
+    background-color: #1f2d3d; /* darker tone similar to container in screenshot */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+}
+
+.table thead {
+    background-color: #1f2d3d;
+    color: #ffffff;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+    padding: 15px;
+    border-color: #1f2d3d;
+}
+
+/* Buttons */
+.btn {
+    background: #00bcd4; /* cyan button background */
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background: #00acc1; /* darker cyan hover */
+    transform: scale(1.05);
+    color: #fff;
+}
+
+/* Container */
+.container {
+    background: #1f2d3d; /* dark blue-gray like login box background */
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Navbar placeholder */
+.navbar {
+    background-color: #0f2027;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.text-center{
+    color: white;
+}

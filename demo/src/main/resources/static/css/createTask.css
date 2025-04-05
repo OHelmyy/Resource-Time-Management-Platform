@@ -1,0 +1,100 @@
+/* General Page Style */
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f222a, #153740); /* Deep teal gradient */
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* Form Container */
+.container {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.06); /* Soft frosted white */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+/* Title */
+h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 500;
+    color: #e1f0f5; /* Lightened soft white */
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Inputs */
+input[type="text"] {
+    width: 100%;
+    padding: 0.7rem;
+    margin-top: 0.3rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #e5edf5; /* Soft light blue */
+    color: #000; /* Dark text */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #00c9db; /* Vibrant teal */
+    background-color: #f0f6fc; /* Lighter input background */
+    box-shadow: 0 0 12px #00c9db;
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Submit + View Buttons */
+button[type="submit"],
+.view-button {
+    background: linear-gradient(135deg, #00c9db, #00aab3); /* Vivid teal gradient */
+    color: #ffffff;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.15); /* Reduced glow */
+    transition: 0.3s;
+}
+
+button[type="submit"]:hover,
+.view-button:hover {
+    background: #00c9db;
+    box-shadow: 0 0 6px #00c9db, 0 0 10px #00c9db; /* Softer glow on hover */
+    transform: scale(1.03);
+}
+
+
+/* Success Message */
+.success {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: rgba(0, 200, 83, 0.1); /* Soft teal green */
+    border: 1px solid #00c853; /* Bright teal green */
+    border-radius: 10px;
+    color: #00c853; /* Green text */
+    text-align: center;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}

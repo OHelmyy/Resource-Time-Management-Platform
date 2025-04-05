@@ -1,0 +1,83 @@
+/* Reset & base styling */
+body {
+    background: linear-gradient(135deg, #1a1a2e, #3a0ca3); /* deeper purple gradient */
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(0, 224, 255, 0.4);
+}
+
+/* Header / Top Bar */
+header .container-fluid {
+    background: linear-gradient(135deg, #00e0ff, #3f3d56); /* cool-cyan to matte dark */
+    padding: 1rem 2rem;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 12px rgba(0, 224, 255, 0.3);
+}
+
+/* Custom Glow Text */
+.custom-text {
+    color: #ffffff;
+    text-shadow: 0 0 5px #00e0ff, 0 0 10px #00e0ff;
+}
+
+/* Cards */
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 224, 255, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(0, 224, 255, 0.15);
+    backdrop-filter: blur(12px);
+    color: #ffffff;
+}
+
+/* Tables */
+.table {
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table th, .table td {
+    border-color: rgba(0, 224, 255, 0.2);
+}
+
+.table thead {
+    background: rgba(0, 224, 255, 0.1);
+}
+
+/* Glowing Buttons */
+.btn-outline-dark {
+    border-color: #00e0ff;
+    color: #00e0ff;
+    box-shadow: 0 0 8px #00e0ff;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-dark:hover {
+    background-color: #00e0ff;
+    color: #000000;
+    box-shadow: 0 0 15px #00e0ff, 0 0 25px #00e0ff;
+}
+
+/* Scrollbar for a sleek touch */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00e0ff, #3f3d56);
+    border-radius: 10px;
+}
+
+/* Responsive table corners */
+.table-responsive {
+    border-radius: 12px;
+    overflow: hidden;
+}

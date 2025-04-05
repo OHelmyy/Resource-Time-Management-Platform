@@ -1,0 +1,87 @@
+/* Global Styles */
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #0f222a, #153740); /* matte dark teal gradient */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+}
+
+.h4, .h1, .h2, .a {
+    color: #eaf9ff; /* soft frost white */
+}
+
+/* Navbar */
+.custom-navbar {
+    background: linear-gradient(90deg, #0c2c33, #1b4d57, #215c65); /* deep teal matte tones */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.container-fluid h1 {
+    color: #eaf9ff;
+}
+
+.navbar-brand {
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    color: #c0d8dd;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #72f0ff; /* vivid teal-cyan hover */
+}
+
+/* Tables */
+.table {
+    background-color: #11272d; /* deep matte blue-teal */
+    color: #f0fbff;
+    border: none;
+}
+
+.table th,
+.table td {
+    border-color: #1d3c44;
+}
+
+.table thead {
+    background-color: #1a4048;
+}
+
+/* Section Headers */
+.custom-text {
+    color: #eaf9ff;
+    border-left: 4px solid #00c9db; /* vibrant teal accent */
+    padding-left: 10px;
+}
+
+/* Buttons */
+.btn-outline-dark {
+    --bs-btn-color: white;
+    border: 2px solid #00c9db; /* cyan-blue border */
+    color: #ffffff;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+.btn-outline-dark a {
+    color: #eaf9ff;
+}
+
+.btn-outline-dark:hover {
+    background: #00c9db;
+    color: #000000;
+}
+
+/* Container Adjustments */
+.container-fluid {
+    padding: 0 2rem;
+}
+
+/* Glowing Effect */
+.btn-outline-dark,
+.nav-link.active {
+    box-shadow: 0 0 10px #00e0ff; /* brighter glow effect */
+}

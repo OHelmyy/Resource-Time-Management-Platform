@@ -1,0 +1,99 @@
+/* Background */
+body {
+    background: linear-gradient(135deg, #0f222a, #153740); /* deep teal gradient */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    max-width: 600px;
+    margin: 3rem auto;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+/* Title */
+h2 {
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+    margin-bottom: 1.5rem;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Inputs */
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 0.7rem;
+    margin-top: 0.4rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #e5edf5; /* light gray-blue */
+    color: #000; /* dark text */
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #00c9db;
+    background-color: #f0f6fc;
+    box-shadow: 0 0 12px #00c9db;
+}
+
+/* Button */
+button[type="submit"] {
+    width: 100%;
+    margin-top: 1.5rem;
+    background: linear-gradient(135deg, #00c9db, #00aab3); /* updated teal gradient */
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 14px;
+    font-weight: bold;
+    box-shadow: 0 0 6px #00c9db; /* reduced default glow */
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+    background: #00c9db;
+    color: #ffffff;
+    box-shadow: 0 0 6px #00c9db, 0 0 10px #00c9db; /* much softer hover glow */
+    transform: scale(1.02);
+}
+
+/* Back Link */
+.back-link a {
+    color: #00c9db;
+    text-decoration: none;
+    font-size: 1rem;
+    text-shadow: 0 0 2px #00c9db; /* lower glow */
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+
+/* Back Link */
+.back-link {
+    margin-top: 1.5rem;
+    text-align: center;
+}
