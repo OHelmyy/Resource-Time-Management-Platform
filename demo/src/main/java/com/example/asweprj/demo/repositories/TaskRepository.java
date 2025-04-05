@@ -13,5 +13,6 @@ import com.example.asweprj.demo.models.Task;
 public interface TaskRepository extends JpaRepository<Task, Long> {
     List<Task> findByEmployee(Employee employee);
     List<Task> findByManager(Manager manager);
-    int councountByAssignedto(Employee employee);   
+    
+    
 }
