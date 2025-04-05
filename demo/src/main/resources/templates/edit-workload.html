@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Workload</title>
+    <link rel="stylesheet" th:href="@{/css/styles2.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <h1 class="text-center mt-5">Edit Workload for <span th:text="${employee.name}"></span></h1>
+
+    <div class="container mt-5">
+        <form th:action="@{/manager/update-workload/{employeeId}(employeeId=${employee.userId})}" method="post">
+            <div class="mb-3">
+                <label for="workload" class="form-label">Workload</label>
+                <input type="number" id="workload" name="workload" class="form-control" th:value="${employee.workload}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
