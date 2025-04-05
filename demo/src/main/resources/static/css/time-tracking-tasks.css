@@ -1,64 +1,92 @@
+/* Global styles */
 body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* adjusted to match screenshot */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f8;
+    color: #ffffff;
+    padding: 2rem;
     margin: 0;
-    padding: 20px;
 }
 
+/* Header */
 h1 {
-    color: #1e3a8a;
-    margin-bottom: 30px;
     text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 2rem;
 }
 
+/* Task list */
 ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
 }
 
 li {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.06); /* lighter transparent white */
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
 }
 
-li > div {
-    margin-bottom: 10px;
+li:hover {
+    transform: translateY(-5px);
 }
 
+/* Task text */
 strong {
-    font-size: 1.2em;
-    color: #333;
+    font-size: 1.2rem;
+    color: #e0eaff; /* brighter white-blue like input text */
 }
 
-p {
-    font-size: 1em;
-    color: #666;
+/* Status text */
+p span {
+    font-weight: bold;
+    color: #00e5ff; /* close to the cyan in the login button */
 }
 
+/* Buttons */
 button {
-    background-color: #1e3a8a; /* Blue button */
-    color: white; /* White text */
+    background: #00bcd4; /* cyan button */
     border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
+    padding: 0.5rem 1.5rem;
+    color: white;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 0.8rem;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-    margin-top: 10px;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #2563eb; /* Slightly darker blue on hover */
+    background: #00acc1; /* hover cyan darker */
+    transform: scale(1.05);
 }
 
+/* Links */
 a {
-    color: #1e3a8a;
+    display: inline-block;
+    margin-right: 1rem;
+    margin-top: 2rem;
+    color: #00e5ff; /* cyan */
     text-decoration: none;
     font-weight: bold;
-    display: block;
-    margin-top: 20px;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* "No tasks" message */
+p {
     text-align: center;
+    font-size: 1.2rem;
+    color: #b0bec5; /* light grey like placeholder */
 }

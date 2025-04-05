@@ -2,60 +2,86 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Edit Task</title>
-    
-    <style>
-        body {
-            background-color: #122b4f;
-            font-family: Arial, sans-serif;
-            color: #003366;
-        }
+    <link rel="stylesheet" th:href="@{/css/editTask.css}">
 
-        .container {
-            max-width: 500px;
-            margin: 50px auto;
-            background-color: #e6f0ff;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #99c2ff;
-        }
+<!-- <style>
+     /* Form Container */
+.container {
+    max-width: 600px;
+    margin: 3rem auto;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
 
-        h2 {
-            text-align: center;
-        }
+/* Page Title */
+h2 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
 
-        label {
-            display: block;
-            margin-top: 15px;
-        }
+/* Form Labels */
+label {
+    color: #ffffff;
+    font-weight: 500;
+    margin-top: 1rem;
+}
 
-        input {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
+/* Input Fields */
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 0.6rem;
+    margin-top: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
 
-        button {
-            background-color: #0066cc;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            margin-top: 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+input:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 10px #8f94fb;
+}
 
-        button:hover {
-            background-color: #004d99;
-        }
+/* Submit Button */
+button[type="submit"] {
+    background-color: #122b4f;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
 
-        .back-link {
-            display: block;
-            margin-top: 20px;
-            text-align: center;
-        }
-    </style>
+button[type="submit"]:hover {
+    background-color: #1c3d78;
+    transform: scale(1.03);
+}
+
+/* Back Link */
+.back-link {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.back-link a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.back-link a:hover {
+    color: #b8b8ff;
+    text-decoration: underline;
+}
+
+    </style> -->
 </head>
 <body>
     <div th:replace="~{navbar :: navbar}"></div>

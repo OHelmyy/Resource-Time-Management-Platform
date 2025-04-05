@@ -1,58 +1,104 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <link rel="stylesheet" th:href="@{/css/task.css}">
+    <!-- <link rel="stylesheet" th:href="@{/css/task.css}"> -->
 <head>
     <title>Assign Task</title>
     <style>
+        /* Global Page Background */
         body {
-            background-color: #122b4f;
-            font-family: Arial, sans-serif;
-            color: #003366;
+            background: linear-gradient(135deg, #0f222a, #153740);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
         }
 
+        /* Container */
         .container {
-            max-width: 500px;
-            margin: 50px auto;
-            background-color: #e6f0ff;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #99c2ff;
+            max-width: 850px;
+            margin: 4rem auto;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
         }
 
+        /* Title */
         h2 {
             text-align: center;
+            color: #ffffff;
+            text-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+            margin-bottom: 1.5rem;
         }
 
+        /* Labels */
         label {
             display: block;
-            margin-top: 15px;
+            margin-top: 1rem;
+            font-weight: 500;
+            color: #ffffff;
+            text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
         }
 
+        /* Select Field */
         select {
             width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
+            padding: 0.7rem;
+            margin-top: 0.4rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: #e5edf5;
+            color: #000;
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
-        button {
-            background-color: #0066cc;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            margin-top: 20px;
-            border-radius: 5px;
-            cursor: pointer;
+        select:focus {
+            outline: none;
+            border-color: #00c9db;
+            background-color: #f0f6fc;
+            box-shadow: 0 0 8px #00c9db;
         }
 
-        button:hover {
-            background-color: #004d99;
-        }
+       /* Button */
+button[type="submit"] {
+    width: 100%;
+    margin-top: 1.5rem;
+    background: linear-gradient(135deg, #00c9db, #00aab3); /* updated teal gradient */
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 14px;
+    font-weight: bold;
+    box-shadow: 0 0 6px #00c9db; /* reduced default glow */
+    cursor: pointer;
+    transition: 0.3s;
+}
 
+button[type="submit"]:hover {
+    background: #00c9db;
+    color: #ffffff;
+    box-shadow: 0 0 6px #00c9db, 0 0 10px #00c9db; /* much softer hover glow */
+    transform: scale(1.02);
+}
+
+/* Back Link */
+.back-link a {
+    color: #00c9db;
+    text-decoration: none;
+    font-size: 1rem;
+    text-shadow: 0 0 2px #00c9db; /* lower glow */
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
+        /* Back Link */
         .back-link {
-            display: block;
-            margin-top: 20px;
+            margin-top: 1.5rem;
             text-align: center;
         }
     </style>

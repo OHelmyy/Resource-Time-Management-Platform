@@ -1,73 +1,98 @@
+/* General body styles */
 body {
-    background-color: #122b4f;
-    font-family: Arial, sans-serif;
-    color: #003366;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* updated dark gradient */
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2rem;
+    margin: 0;
 }
 
+/* Container */
 .container {
-    max-width: 700px;
-    margin: 50px auto;
-    background-color: #e6f0ff;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid #99c2ff;
+    max-width: 1000px;
+    margin: auto;
+    background: rgba(31, 45, 61, 0.85); /* subtle dark glass effect */
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
 }
 
+/* Header */
 h2 {
     text-align: center;
-    color: #003366;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: #ffffff;
 }
 
+/* Table */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.04); /* very light transparent layer */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+thead {
+    background-color: rgba(0, 255, 255, 0.08); /* faint cyan highlight */
 }
 
 th, td {
-    border: 1px solid #99c2ff;
-    padding: 10px;
-    text-align: left;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 th {
-    background-color: #cce0ff;
+    color: #e0f7ff; /* very light blue-white text */
+    font-weight: 600;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f7ff;
-}
-
-a {
-    color: #0066cc;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
+/* Action buttons */
 .action-btn {
-    margin-right: 5px;
-    padding: 5px 10px;
+    display: inline-block;
+    padding: 6px 15px;
+    margin: 4px;
+    background: linear-gradient(145deg, #00bcd4, #00acc1); /* cyan gradient */
     color: white;
-    background-color: #0066cc;
-    border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     text-decoration: none;
-    font-size: 0.9em;
-}
-
-.action-btn.delete {
-    background-color: #0066cc;
+    font-weight: bold;
+    transition: all 0.3s ease;
 }
 
 .action-btn:hover {
-    opacity: 0.9;
+    background: linear-gradient(145deg, #00e5ff, #26c6da); /* brighter hover */
+    transform: scale(1.05);
 }
 
+/* Delete button */
+.action-btn.delete {
+    background: linear-gradient(145deg, #e53935, #b71c1c); /* red gradient */
+}
 
+.action-btn.delete:hover {
+    background: linear-gradient(145deg, #ff5252, #d32f2f);
+}
+
+/* Back link */
 .back-link {
-    display: block;
-    margin-top: 20px;
     text-align: center;
+    margin-top: 2rem;
+}
+
+.back-link a {
+    color: #00e5ff; /* cyan link */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.back-link a:hover {
+    color: #ffffff;
+    text-decoration: underline;
 }
