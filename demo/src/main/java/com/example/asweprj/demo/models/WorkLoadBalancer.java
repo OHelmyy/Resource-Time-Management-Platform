@@ -1,5 +1,12 @@
 package com.example.asweprj.demo.models;
-import jakarta.persistence.*;
+import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 // import java.util.List;
@@ -7,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-
+@RestController
 public class WorkLoadBalancer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

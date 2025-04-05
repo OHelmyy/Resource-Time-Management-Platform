@@ -2,10 +2,12 @@ package com.example.asweprj.demo.models;
 
 import java.util.List;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 
 
@@ -21,4 +23,10 @@ public class Employee extends User {
     
     @OneToOne(mappedBy = "employee")
     private Dashboard dashboard;
+
+
+    public void setWorkload( int workload) {
+        this.workload = workload;
+    }
+    
 }

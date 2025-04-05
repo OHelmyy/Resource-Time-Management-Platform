@@ -25,12 +25,10 @@ import jakarta.servlet.http.HttpSession;
 public class EmployeeController {
     private final TaskRepository taskRepository;
     private final TimeTrackingRepository timeTrackingRepository;
-    private final EmployeeRepository employeeRepository;
 
     public EmployeeController(TaskRepository taskRepository, TimeTrackingRepository timeTrackingRepository, EmployeeRepository employeeRepository) {
         this.taskRepository = taskRepository;
         this.timeTrackingRepository = timeTrackingRepository;
-        this.employeeRepository = employeeRepository;
     }
 
     @GetMapping("/tasks")
