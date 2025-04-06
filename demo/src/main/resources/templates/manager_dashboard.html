@@ -75,7 +75,7 @@
                 <tbody>
                     <tr th:each="task : ${tasks}">
                         <td th:text="${task.description}">Task 1</td>
-                        <td th:text="${task.employee.name}">John Doe</td>
+                        <td th:text="${task.employee != null} ? ${task.employee.name} : 'Unassigned'">Unassigned</td>
                         <td th:text="${task.status}">In Progress</td>
                         
                     </tr>
