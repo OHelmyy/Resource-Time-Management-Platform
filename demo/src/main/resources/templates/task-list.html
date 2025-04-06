@@ -7,6 +7,9 @@
     </head>
     <body>
     <div class="container">
+        <div class="back-arrow">
+            <a th:href="@{/tasks/create}">←</a>
+        </div>
         <h2>All Tasks</h2>
         <table>
             <thead>
@@ -39,9 +42,9 @@
             </tbody>
         </table>
     
-        <div class="back-link">
+        <!-- <div class="back-link">
             <a th:href="@{/tasks/create}">← Back to Create Task</a>
-        </div>
+        </div> -->
     </div>
     </body>
     </html>

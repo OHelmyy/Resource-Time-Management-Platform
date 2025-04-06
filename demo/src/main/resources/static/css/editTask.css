@@ -97,3 +97,16 @@ button[type="submit"]:hover {
     margin-top: 1.5rem;
     text-align: center;
 }
+.back-arrow a:hover {
+    color: #26c6da; /* Lighter orange on hover */
+}
+.back-arrow a{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 3rem;
+    font-weight: 800px;
+    color: #ffffff; /* Orange arrow color — you can change this */
+    text-decoration: none; /* No underline */
+    transition: color 0.3s ease;
+}

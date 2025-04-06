@@ -1,83 +1,189 @@
-/* Reset & base styling */
+/* Base styling */
 body {
-    background: linear-gradient(135deg, #1a1a2e, #3a0ca3); /* deeper purple gradient */
-    color: #ffffff;
+    background: linear-gradient(135deg, #1b1f23, #2d393d);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    min-height: 100vh;
+    color: #e9fdf7;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
-h1, h2 {
+/* Headings */
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
     color: #ffffff;
-    text-shadow: 0 0 8px rgba(0, 224, 255, 0.4);
+    margin-bottom: 1.5rem;
 }
 
-/* Header / Top Bar */
+h2, h3, h4 {
+    color: #ffffff;
+    font-weight: 800;
+    text-shadow: none;
+    margin: 1rem 0;
+}
+
+/* Header Bar */
 header .container-fluid {
-    background: linear-gradient(135deg, #00e0ff, #3f3d56); /* cool-cyan to matte dark */
+    background: linear-gradient(135deg, #47a083, #2d393d);
     padding: 1rem 2rem;
-    border-radius: 0 0 20px 20px;
-    box-shadow: 0 4px 12px rgba(0, 224, 255, 0.3);
+    border-radius: 0 0 0 5px;
+    box-shadow: 0 2px 8px rgba(71, 160, 131, 0.3);
+    margin-bottom: 2rem;
 }
 
-/* Custom Glow Text */
+/* Custom Text - "Employee" */
 .custom-text {
     color: #ffffff;
-    text-shadow: 0 0 5px #00e0ff, 0 0 10px #00e0ff;
+    font-size: 2.4rem;
+    font-weight: 900;
+    text-shadow: none;
+    margin-bottom: 1rem;
 }
 
 /* Cards */
 .card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(0, 224, 255, 0.3);
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(71, 160, 131, 0.25);
     border-radius: 16px;
-    box-shadow: 0 0 15px rgba(0, 224, 255, 0.15);
-    backdrop-filter: blur(12px);
-    color: #ffffff;
+    box-shadow: 0 0 8px rgba(95, 187, 160, 0.08);
+    backdrop-filter: blur(8px);
+    color: #e9fdf7;
+    margin-bottom: 1.5rem;
 }
 
-/* Tables */
+/* Navigation Links */
+.nav-link {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+/* Table
 .table {
-    color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(43, 55, 59, 0.3);
+    color: #e9fdf7;
     border-radius: 12px;
     overflow: hidden;
+    margin-top: 1rem;
 }
 
 .table th, .table td {
-    border-color: rgba(0, 224, 255, 0.2);
+    border-color: rgba(95, 187, 160, 0.2);
 }
 
 .table thead {
-    background: rgba(0, 224, 255, 0.1);
+    background: rgba(95, 187, 160, 0.1);
+} */
+
+/* Enhanced Table Styling */
+.table-responsive {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.02);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Glowing Buttons */
+/* Table Appearance */
+.table {
+    margin: 0;
+    background-color: transparent;
+    border-collapse: collapse;
+}
+
+.table th {
+    background-color: rgba(95, 187, 160, 0.2);
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.table td {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 0.75rem;
+    border-top: 1px solid rgba(95, 187, 160, 0.2);
+    color: #e9fdf7;
+}
+
+/* Row hover effect */
+.table tbody tr:hover {
+    background-color: rgba(95, 187, 160, 0.05);
+}
+
+
+/* Buttons */
 .btn-outline-dark {
-    border-color: #00e0ff;
-    color: #00e0ff;
-    box-shadow: 0 0 8px #00e0ff;
-    transition: all 0.3s ease;
+    border-color: #5fbba0;
+    color: #5fbba0;
+    background-color: transparent;
+    box-shadow: none;
+    transition: 0.3s ease;
+    margin-top: 1rem;
 }
 
 .btn-outline-dark:hover {
-    background-color: #00e0ff;
-    color: #000000;
-    box-shadow: 0 0 15px #00e0ff, 0 0 25px #00e0ff;
+    background-color: #5fbba0;
+    color: #f5f7fa;
+    box-shadow: 0 0 10px rgba(95, 187, 160, 0.2);
 }
 
-/* Scrollbar for a sleek touch */
+/* Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #00e0ff, #3f3d56);
+    background: linear-gradient(180deg, #5fbba0, #2d393d);
     border-radius: 10px;
 }
 
-/* Responsive table corners */
+/* Table Wrapper */
 .table-responsive {
     border-radius: 12px;
     overflow: hidden;
 }
+/* Employee word */
+.navbar-brand a{
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+/* Dashboard word */
+.dashboard-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* Logout button (white style) */
+.btn-outline-light {
+    border-color: #ffffff;
+    color: #ffffff;
+    background-color: transparent;
+    transition: 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background-color: #ffffff;
+    color: #1b1f23;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+/* White Track Tasks Button */
+a.btn[href*="/employee/tasks"] {
+    border-color: #ffffff;
+    color: #ffffff;
+    background-color: transparent;
+    transition: 0.3s ease;
+}
+
+a.btn[href*="/employee/tasks"]:hover {
+    background-color: #ffffff;
+    color: #1b1f23;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+
+

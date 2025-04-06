@@ -10,25 +10,26 @@
 </head>
 <body class="bg-light">
 
+<!-- Inside your header -->
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="#">Employee</a>
-        </div>
-    </nav>
-
-    <div class="container-fluid mt-4">
+    
+    <div class="container-fluid mt-6">
         <div class="d-flex justify-content-between align-items-center">
-            <h1 class="h3 text-dark">Dashboard</h1>
-           
-            <a class="btn btn-outline-dark" th:href="@{/auth/logout}">Logout</a>
+            <h1 class="dashboard-title">Dashboard</h1>
+            <a class="btn btn-outline-light" th:href="@{/auth/logout}">Logout</a>
         </div>
     </div>
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand employee-brand" href="#">Employee</a>
+        </div>
+    </nav>
 </header>
 
+
 <main class="container-fluid py-4">
-    <section class="mb-5">
-        <h2 class="h4 custom-text mb-3">My Profile</h2>
+    <section class="section1">
+        <h2 class="custom-text">My Profile</h2>
         <div class="card p-3">
             <p><strong>Name:</strong> <span th:text="${employee.name}">S S</span></p>
             <p><strong>Email:</strong> <span th:text="${employee.email}">SAM@example.com</span></p>
@@ -37,8 +38,8 @@
         </div>
     </section>
 
-    <section>
-        <h2 class="h4 custom-text mb-3">My Tasks</h2>
+    <section class="section1">
+        <h2 class="custom-text mb-3">My Tasks</h2>
 
         <div class="table-responsive">
             <table class="table table-striped table-bordered align-middle">
