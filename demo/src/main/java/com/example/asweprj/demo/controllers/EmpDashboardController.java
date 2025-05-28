@@ -39,11 +39,8 @@ public class EmpDashboardController {
         }
 
         List<Task> myTasks = taskRepository.findByEmployee(loggedInEmployee);
-        List<MenuItem> menuItems = menuService.getMenuItems();
-
         model.addAttribute("employee", loggedInEmployee);
         model.addAttribute("myTasks", myTasks);
-        model.addAttribute("menuItems", menuItems);
 
         return "employee_dashboard";
     }

@@ -55,7 +55,7 @@ public class DashboardController {
         }
         List<Employee> employees = employeeRepository.findAll();
         List<Task> tasks = taskRepository.findAll();
-        List<MenuItem> menuItems = menuService.getMenuItems(); // ✅ Get menu items
+        List<MenuItem> menuItems = menuService.getTopLevelMenuWithSubItems();        
 
         model.addAttribute("employees", employees);
         model.addAttribute("tasks", tasks);
