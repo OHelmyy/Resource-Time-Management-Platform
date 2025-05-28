@@ -52,10 +52,10 @@
             <td>mohamed@example.com</td>
             <td>35%</td>
           </tr>
-          <tr>
-            <td>Sarah Ali</td>
-            <td>sara@example.com</td>
-            <td>50%</td>
+          <tr th:each="employee : ${employees}">
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.email}">john@example.com</td>
+            <td th:text="${employee.workload}">0</td>
           </tr>
         </tbody>
       </table>
@@ -77,10 +77,11 @@
             <td>Mohamed Ahmed</td>
             <td>In Progress</td>
           </tr>
-          <tr>
-            <td>Review legal documents</td>
-            <td>Sarah Ali</td>
-            <td>Completed</td>
+          <tr th:each="task : ${tasks}">
+            <td th:text="${task.description}">Task 1</td>
+            <td th:text="${task.employee != null} ? ${task.employee.name} : 'Unassigned'">Unassigned</td>
+            <td th:text="${task.status}">In Progress</td>
+                        
           </tr>
         </tbody>
       </table>
