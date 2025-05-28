@@ -1,7 +1,7 @@
-/* General body styles */
+/* Page base */
 body {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* updated dark gradient */
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #0f1c3f;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 2rem;
     margin: 0;
@@ -12,19 +12,19 @@ body {
     position: relative;
     max-width: 1000px;
     margin: auto;
-    background: rgba(31, 45, 61, 0.85);
+    background: #f9fbfd;
     padding: 2rem;
     border-radius: 20px;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
 }
 
 /* Header */
 h2 {
     text-align: center;
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: 2.3rem;
+    font-weight: 700;
     margin-bottom: 2rem;
-    color: #ffffff;
+    color: #0f1c3f;
 }
 
 /* Table */
@@ -33,86 +33,95 @@ table {
     border-collapse: collapse;
     border-radius: 10px;
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.04); /* very light transparent layer */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.03);
 }
 
 thead {
-    background-color: rgba(0, 255, 255, 0.08); /* faint cyan highlight */
+    background-color: #4d88ff;
 }
 
 th, td {
-    padding: 15px;
+    padding: 14px;
     text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid #e0e6ed;
+    font-size: 0.95rem;
 }
 
 th {
-    color: #e0f7ff; /* very light blue-white text */
+    color: #ffffff;
     font-weight: 600;
+}
+
+td {
+    color: #0f1c3f;
 }
 
 /* Action buttons */
 .action-btn {
     display: inline-block;
-    padding: 6px 15px;
+    padding: 6px 14px;
     margin: 4px;
-    background: linear-gradient(145deg, #00bcd4, #00acc1); /* cyan gradient */
+    background: #4d88ff;
     color: white;
     border-radius: 20px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 0.9rem;
     transition: all 0.3s ease;
 }
 
 .action-btn:hover {
-    background: linear-gradient(145deg, #00e5ff, #26c6da); /* brighter hover */
+    background: #356ee0;
     transform: scale(1.05);
 }
 
 /* Delete button */
 .action-btn.delete {
-    background: linear-gradient(145deg, #e53935, #b71c1c); /* red gradient */
+    background: #e53935;
 }
 
 .action-btn.delete:hover {
-    background: linear-gradient(145deg, #ff5252, #d32f2f);
+    background: #d32f2f;
 }
 
-/* Back link */
-.back-link {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.back-link a {
-    color: #00e5ff; /* cyan link */
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: color 0.3s;
-}
-
-.back-link a:hover {
-    color: #ffffff;
-    text-decoration: underline;
-}
-
-
-.back-arrow a:hover {
-    color: #26c6da; /* Lighter orange on hover */
-}
-.back-arrow a{
+/* Back arrow */
+.back-arrow a {
     position: absolute;
     top: 15px;
     left: 15px;
-    font-size: 3rem;
-    font-weight: 800px;
-    color: #ffffff; /* Orange arrow color — you can change this */
-    text-decoration: none; /* No underline */
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4d88ff;
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
+.back-arrow a:hover {
+    color: #356ee0;
+}
 
+/* Responsive tables */
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
 
+    thead {
+        display: none;
+    }
 
+    td {
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+    }
+
+    td::before {
+        position: absolute;
+        left: 16px;
+        font-weight: bold;
+        color: #4d88ff;
+        content: attr(data-label);
+    }
+}

@@ -1,110 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Edit Task</title>
-    <link rel="stylesheet" th:href="@{/css/editTask.css}">
-
-<!-- <style>
-     /* Form Container */
-.container {
-    max-width: 600px;
-    margin: 3rem auto;
-    background-color: rgba(255, 255, 255, 0.05);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-}
-
-/* Page Title */
-h2 {
-    text-align: center;
-    color: #ffffff;
-    margin-bottom: 1.5rem;
-}
-
-/* Form Labels */
-label {
-    color: #ffffff;
-    font-weight: 500;
-    margin-top: 1rem;
-}
-
-/* Input Fields */
-input[type="text"], input[type="number"] {
-    width: 100%;
-    padding: 0.6rem;
-    margin-top: 0.5rem;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-}
-
-input:focus {
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 10px #8f94fb;
-}
-
-/* Submit Button */
-button[type="submit"] {
-    background-color: #122b4f;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    margin-top: 1.5rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 100%;
-}
-
-button[type="submit"]:hover {
-    background-color: #1c3d78;
-    transform: scale(1.03);
-}
-
-/* Back Link */
-.back-link {
-    margin-top: 1.5rem;
-    text-align: center;
-}
-
-.back-link a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1rem;
-}
-
-.back-link a:hover {
-    color: #b8b8ff;
-    text-decoration: underline;
-}
-
-    </style> -->
+  <meta charset="UTF-8" />
+  <title>Edit Task</title>
+  <link rel="stylesheet" th:href="@{/css/editTask.css}" />
 </head>
 <body>
-    <div th:replace="~{navbar :: navbar}"></div>
 
-<div class="container">
-    <div class="back-arrow">
-        <a th:href="@{/tasks/create}">←</a>
-    </div>
-    <h2>Edit Task</h2>
+<!-- Navbar -->
+<nav class="custom-navbar">
+  <div class="nav-left">Manager Panel</div>
+  <div class="nav-right">
+    <a class="nav-btn" th:href="@{/manager/dashboard}">Dashboard</a>
+    <a class="nav-btn" th:href="@{/tasks/create}">Create Task</a>
+    <a class="nav-btn" th:href="@{/tasks/list}">Task List</a>
+    <a class="nav-btn" th:href="@{/auth/logout}">Logout</a>
+  </div>
+</nav>
 
-    <form th:action="@{'/tasks/edit/' + ${task.taskId}}" th:object="${task}" method="post">
-        <label for="description">Description:</label>
-        <input type="text" th:field="*{description}" id="description" required/>
+<!-- Main Container -->
+<div class="assign-container">
+  <h2>Edit Task</h2>
 
-        <label for="status">Status:</label>
-        <input type="text" th:field="*{status}" id="status" required/>
+  <form th:action="@{'/tasks/edit/' + ${task.taskId}}" th:object="${task}" method="post">
+    <label for="description">Description:</label>
+    <input type="text" th:field="*{description}" id="description" required />
 
-        <button type="submit">Update Task</button>
-    </form>
-<!-- 
-    <div class="back-link">
-        <a th:href="@{/tasks/list}">← Back to Task List</a>
-    </div> -->
+    <label for="status">Status:</label>
+    <input type="text" th:field="*{status}" id="status" required />
+
+    <button type="submit">Update Task</button>
+  </form>
+
+  <div class="center-btn">
+    <a th:href="@{/tasks/list}" class="back-btn">← Back to Task List</a>
+  </div>
 </div>
+
 </body>
 </html>

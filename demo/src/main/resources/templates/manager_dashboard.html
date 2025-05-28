@@ -1,91 +1,98 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Manager Dashboard</title>
-    <link rel="stylesheet" th:href="@{/css/managerDashboard.css}">
-    
-    <!-- Bootstrap 5 CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Manager Dashboard</title>
+<link rel="stylesheet" th:href="@{/css/managerDashboard.css}">
 </head>
 <body>
 
+<nav class="custom-navbar">
+  <div class="navbar-container">
+    <a href="#" class="navbar-brand">Manager</a>
+    <ul class="navbar-nav">
+      <li><a href="#" class="nav-link active">Home</a></li>
+      <li><a href="/view-workload" class="nav-link">View Workload</a></li>
+      <li><a href="/manager/edit-workload" class="nav-link">Edit Workload</a></li>
+      <li><a href="/manager/tasks" class="nav-link">Tasks</a></li>
+    </ul>
+    <button class="btn-outline-dark" onclick="location.href='/auth/logout'">Logout</button>
+  </div>
+</nav>
+
 <header>
-    <!-- <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="#">Manager </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto" th:if="${menuItems}">
-                    <li class="nav-item" th:each="item : ${menuItems}">
-                        <a class="nav-link" th:href="@{${item.url}}" th:text="${item.name}"></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
-    <div th:replace="~{navbar :: navbar}"></div>
-
-    <div class="container-fluid mt-4">
-        <div class="d-flex justify-content-between align-items-center">
-            <h1>Dashboard</h1>
-            <a class="btn btn-outline-dark" th:href="@{/auth/logout}">Logout</a>
-        </div>
-    </div>
+  <div class="container-fluid position-relative">
+    <h1 class="dashboard-title">Dashboard</h1>
+  </div>
 </header>
 
-<main class="container-fluid py-4">
-    <section class="mb-5">
-        <h2 class="custom-text mb-3">Employee Overview</h2>
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered align-middle">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Workload</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="employee : ${employees}">
-                        <td th:text="${employee.name}"></td>
-                        <td th:text="${employee.email}">john@example.com</td>
-                        <td th:text="${employee.workload}">0</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+<div class="d-flex">
+  <nav class="side-menu" aria-label="Sidebar navigation">
+    <a href="#" class="nav-link active">Home</a>
+    <a href="/manager/view-workload" class="nav-link">View Workload</a>
+    <a href="/manager/edit-workload" class="nav-link">Edit Workload</a>
+    <a href="/manager/tasks" class="nav-link">Tasks</a>
+  </nav>
 
+  <main class="flex-grow-1" role="main">
     <section>
-        <h2 class="custom-text mb-3">Task Overview</h2>
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered align-middle">
-                <thead  class="table-dark">
-                    <tr>
-                        <th>Description</th>
-                        <th>Assigned to</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="task : ${tasks}">
-                        <td th:text="${task.description}">Task 1</td>
-                        <td th:text="${task.employee != null} ? ${task.employee.name} : 'Unassigned'">Unassigned</td>
-                        <td th:text="${task.status}">In Progress</td>
-                        
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+      <h2 class="custom-text">Employee Overview</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Workload</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mohamed Ahmed</td>
+            <td>mohamed@example.com</td>
+            <td>35%</td>
+          </tr>
+          <tr>
+            <td>Sarah Ali</td>
+            <td>sara@example.com</td>
+            <td>50%</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
-</main>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <section style="margin-top: 3rem;">
+      <h2 class="custom-text">Task Overview</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Assigned To</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Prepare sales report</td>
+            <td>Mohamed Ahmed</td>
+            <td>In Progress</td>
+          </tr>
+          <tr>
+            <td>Review legal documents</td>
+            <td>Sarah Ali</td>
+            <td>Completed</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer-container">
+    <p>© 2025 Company Name. All rights reserved.</p>
+  </div>
+</footer>
+
 </body>
 </html>

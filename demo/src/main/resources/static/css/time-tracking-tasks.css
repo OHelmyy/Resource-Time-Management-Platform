@@ -1,22 +1,22 @@
-/* Global styles */
+/* Base layout */
 body {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* adjusted to match screenshot */
+    background-color: #ffffff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #ffffff;
+    color: #0f1c3f;
     padding: 2rem;
     margin: 0;
 }
 
-/* Header */
+/* Heading */
 h1 {
     text-align: center;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #ffffff;
+    font-size: 2.4rem;
+    font-weight: 700;
     margin-bottom: 2rem;
+    color: #0f1c3f;
 }
 
-/* Task list */
+/* Task list container */
 ul {
     list-style: none;
     padding: 0;
@@ -24,12 +24,13 @@ ul {
     max-width: 800px;
 }
 
+/* Individual task box */
 li {
-    background: rgba(255, 255, 255, 0.06); /* lighter transparent white */
-    border-radius: 15px;
+    background: #f9fbfd;
+    border-radius: 16px;
     margin-bottom: 1.5rem;
     padding: 1.5rem;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
 }
 
@@ -37,21 +38,27 @@ li:hover {
     transform: translateY(-5px);
 }
 
-/* Task text */
+/* Task description */
 strong {
     font-size: 1.2rem;
-    color: #e0eaff; /* brighter white-blue like input text */
+    color: #0f1c3f;
 }
 
-/* Status text */
+/* Status line */
+p {
+    font-size: 1rem;
+    margin: 0.5rem 0 0.5rem 0;
+    color: #0f1c3f;
+}
+
 p span {
     font-weight: bold;
-    color: #00e5ff; /* close to the cyan in the login button */
+    color: #4d88ff;
 }
 
 /* Buttons */
 button {
-    background: #00bcd4; /* cyan button */
+    background: #4d88ff;
     border: none;
     padding: 0.5rem 1.5rem;
     color: white;
@@ -64,29 +71,43 @@ button {
 }
 
 button:hover {
-    background: #00acc1; /* hover cyan darker */
+    background: #356ee0;
     transform: scale(1.05);
 }
 
-/* Links */
+/* Navigation Links */
 a {
     display: inline-block;
     margin-right: 1rem;
     margin-top: 2rem;
-    color: #00e5ff; /* cyan */
+    color: #4d88ff;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1rem;
     transition: color 0.3s;
 }
 
 a:hover {
-    color: #ffffff;
+    color: #0f1c3f;
     text-decoration: underline;
 }
 
-/* "No tasks" message */
-p {
+/* Empty task message */
+div p {
     text-align: center;
-    font-size: 1.2rem;
-    color: #b0bec5; /* light grey like placeholder */
+    font-size: 1.1rem;
+    color: #777;
 }
+/* Task box container */
+/* Task box container with dark border and shadow */
+.task-box {
+    background-color: #ffffff;
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 2px solid #0f1c3f; /* dark blue border */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2); /* darker, deeper shadow */
+}
+
+

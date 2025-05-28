@@ -1,38 +1,61 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>View Workload</title>
-    <link rel="stylesheet" th:href="@{/css/viewWorkload.css}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>View Workload</title>
+  <link rel="stylesheet" th:href="@{/css/viewWorkload.css}" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div th:replace="~{navbar :: navbar}"></div>
 
-    <h1 class="text-center mt-5">Employees Workload</h1>
+  <!-- Navbar inclusion -->
+  <div th:replace="~{navbar :: navbar}"></div>
 
-    <div class="container mt-5">
-        <table class="table table-striped table-bordered align-middle">
-            <thead class="table-white">
-                <tr>
-                    <th>Name</th>
-                    <th>Workload</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="employee : ${employees}">
-                    <td th:text="${employee.name}"></td>
-                    <td th:text="${employee.workload}"></td>
-                    <td class="text-center">
-                        <a class="btn" style="background-color: #122b4f; color: white;" th:href="@{/manager/edit-workload/{employeeId}(employeeId=${employee.userId})}">Edit Workload</a>                    </td>
-                    
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div class="d-flex">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Sidebar -->
+    <nav class="side-menu" aria-label="Sidebar navigation">
+      <a href="#" class="nav-link">Home</a>
+      <a href="/manager/view-workload" class="nav-link active">View Workload</a>
+      <a href="/manager/edit-workload" class="nav-link">Edit Workload</a>
+      <a href="/manager/tasks" class="nav-link">Tasks</a>
+    </nav>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <h1 class="dashboard-title mb-4">Employees Workload</h1>
+
+      <table class="data-table table-striped table-bordered align-middle">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Workload</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="employee : ${employees}">
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.workload}"></td>
+            <td class="text-center">
+              <a
+                class="btn btn-primary"
+                th:href="@{/manager/edit-workload/{employeeId}(employeeId=${employee.userId})}"
+              >Edit Workload</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+
+  </div>
+
+  <!-- Footer -->
+ <footer class="footer">
+  <div class="footer-container">
+    <p>© 2025 Company Name. All rights reserved.</p>
+  </div>
+</footer>
+
 </body>
 </html>
-//style2.css

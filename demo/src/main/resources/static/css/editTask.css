@@ -1,112 +1,128 @@
-/* Background */
+/* Body & background */
 body {
-    background: linear-gradient(135deg, #0f222a, #153740); /* deep teal gradient */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #ffffff;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
+  background-color: #f4f5f7; /* off-white */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #0f1c3f; /* dark blue */
+  margin: 0;
+  padding: 0;
 }
 
-/* Container */
-.container {
-    max-width: 600px;
-    margin: 3rem auto;
-    background: rgba(255, 255, 255, 0.06);
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
+/* Navbar */
+.custom-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2e3340; /* dark grey */
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-left {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.nav-right {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-btn {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: #0f1c3f; /* dark blue */
+  color: #ffffff;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: #1e2b5c;
+}
+
+/* Main container */
+.assign-container {
+  max-width: 550px;
+  margin: 4rem auto;
+  background-color: #ffffff;
+  border: 2px solid #0f1c3f;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  padding: 2.5rem;
 }
 
 /* Title */
-h2 {
-    text-align: center;
-    color: #ffffff;
-    text-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
-    margin-bottom: 1.5rem;
+.assign-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: #0f1c3f;
 }
 
 /* Labels */
 label {
-    display: block;
-    margin-top: 1rem;
-    font-weight: 500;
-    color: #ffffff;
-    text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
 }
 
 /* Inputs */
-input[type="text"], input[type="number"] {
-    width: 100%;
-    padding: 0.7rem;
-    margin-top: 0.4rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background-color: #e5edf5; /* light gray-blue */
-    color: #000; /* dark text */
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+input[type="text"] {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.3rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #f1f5f9;
+  color: #0f1c3f;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 input:focus {
-    outline: none;
-    border-color: #00c9db;
-    background-color: #f0f6fc;
-    box-shadow: 0 0 12px #00c9db;
+  outline: none;
+  border-color: #0f1c3f;
+  box-shadow: 0 0 6px #0f1c3f;
 }
 
-/* Button */
+/* Submit Button */
 button[type="submit"] {
-    width: 100%;
-    margin-top: 1.5rem;
-    background: linear-gradient(135deg, #00c9db, #00aab3); /* updated teal gradient */
-    color: #ffffff;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 14px;
-    font-weight: bold;
-    box-shadow: 0 0 6px #00c9db; /* reduced default glow */
-    cursor: pointer;
-    transition: 0.3s;
+  width: 100%;
+  margin-top: 1.5rem;
+  background-color: #0f1c3f;
+  color: #ffffff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button[type="submit"]:hover {
-    background: #00c9db;
-    color: #ffffff;
-    box-shadow: 0 0 6px #00c9db, 0 0 10px #00c9db; /* much softer hover glow */
-    transform: scale(1.02);
+  background-color: #1e2b5c;
+  transform: scale(1.03);
 }
 
-/* Back Link */
-.back-link a {
-    color: #00c9db;
-    text-decoration: none;
-    font-size: 1rem;
-    text-shadow: 0 0 2px #00c9db; /* lower glow */
+/* Back Button Container */
+.center-btn {
+  text-align: center;
+  margin-top: 2rem;
 }
 
-.back-link a:hover {
-    text-decoration: underline;
-    color: #ffffff;
+/* Back Button Style */
+.back-btn {
+  display: inline-block;
+  background-color: #2e3340;
+  color: #ffffff;
+  padding: 0.6rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
 }
 
-
-/* Back Link */
-.back-link {
-    margin-top: 1.5rem;
-    text-align: center;
-}
-.back-arrow a:hover {
-    color: #26c6da; /* Lighter orange on hover */
-}
-.back-arrow a{
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    font-size: 3rem;
-    font-weight: 800px;
-    color: #ffffff; /* Orange arrow color — you can change this */
-    text-decoration: none; /* No underline */
-    transition: color 0.3s ease;
+.back-btn:hover {
+  background-color: #3c4355;
 }
